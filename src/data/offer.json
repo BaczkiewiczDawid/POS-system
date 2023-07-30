@@ -8,5 +8,21 @@
     "Zimne napoje",
     "Gorące napoje",
     "Dodatki"
+  ],
+  "products": [
+    {
+      "name": "Longer B-Smart",
+      "type": "bsmart",
+      "display-name": "Longer",
+      "price": 8.99,
+      "include": ["fries", "longer"]
+    },
+    {
+      "name": "Cheesburger B-Smart",
+      "type": "bsmart",
+      "display-name": "Cheesburger",
+      "price": 8.99,
+      "include": ["fries", "cheesburger"]
+    }
   ]
 }
