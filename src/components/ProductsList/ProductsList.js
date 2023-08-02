@@ -1,17 +1,19 @@
 import React from "react";
 import Button from "../Button/Button";
 import offer from "../../data/offer.json";
-import { Title } from './ProductsList.style';
+import { Title, ProductsWrapper } from "./ProductsList.style";
 
 const ProductsList = () => {
   return (
     <div>
       <Title>B-Smart</Title>
-      {offer.products.map((product) => {
-        if (product.type === "bsmart") {
-          return <Button text={product["display-name"]} />;
-        }
-      })}
+      <ProductsWrapper>
+        {offer.products.map((product) => {
+          if (product.type === "bsmart") {
+            return <Button text={product["display-name"]} />;
+          }
+        })}
+      </ProductsWrapper>
     </div>
   );
 };

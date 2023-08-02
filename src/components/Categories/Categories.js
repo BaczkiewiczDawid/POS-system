@@ -7,7 +7,7 @@ const Categories = () => {
   return (
     <CategoriesWrapper>
       {offer.categories.map((category) => (
-        <Button text={category} />
+        <Button key={category.name} text={category} />
       ))}
     </CategoriesWrapper>
   );

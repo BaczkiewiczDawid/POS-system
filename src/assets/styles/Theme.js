@@ -7,4 +7,10 @@ export const theme = {
     green: "#71B340",
     red: "#FF3E41",
   },
+  screen: {
+    small: "425px",
+    medium: "768px",
+    large: "1080px",
+    extraLarge: "1440px",
+  },
 };
