@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  margin-top: 1rem;
 `;
 
 const CategoryList = [
