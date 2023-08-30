@@ -2,9 +2,10 @@ import { DefaultTheme } from "styled-components";
 
 export const theme = {
   colors: {
-    black: "#15151B",
-    white: "#F6E8EA",
-    green: "#71B340",
+    black: "#111315",
+    white: "#FFFFFF",
+    grey: "#292C2D",
+    lightGrey: "#D9D9D9",
     red: "#FF3E41",
   },
   screen: {
