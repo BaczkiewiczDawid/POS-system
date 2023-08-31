@@ -1,13 +1,16 @@
 import React from "react";
 import Categories from "../Categories/Categories";
-import { Wrapper } from './Home.style';
-import MobileNavigationBar from "../MobileNavigationBar/MobileNavigationBar";
+import { Wrapper } from "./Home.style";
+import Navigation from "../Navigation/Navigation";
 
 const Home = () => {
   return (
     <>
-      <Categories />
-      <MobileNavigationBar />
+      <>
+        <Navigation />
+        <Categories />
+      </>
+
     </>
   );
 };
