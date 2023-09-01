@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import MobileNavigationBar from "../MobileNavigationBar/MobileNavigationBar";
 
@@ -17,16 +17,20 @@ const NavigationWrapper = styled.nav`
     margin-left: 2rem;
 
     li {
-      background-color: ${({ theme }) => theme.colors.grey};
-      width: 65vw;
-      padding: 0.7rem;
-      border-radius: 0.3rem;
-      cursor: pointer;
-
-      &:nth-child(n + 1) {
-        margin-top: 0.5rem;
-      }
     }
+  }
+`;
+
+const LinkWrapper = styled.li`
+  /* background-color: ${({ theme }) => theme.colors.grey}; */
+  background-color: ${props => props.isActive ? props.theme.colors.grey : 'none'};
+  width: 65vw;
+  padding: 0.7rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+
+  &:nth-child(n + 1) {
+    margin-top: 0.5rem;
   }
 `;
 
@@ -67,6 +71,7 @@ const Navigation = () => {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <>
@@ -74,9 +79,9 @@ const Navigation = () => {
         <ul>
           {navigationElements.map((el) => {
             return (
-              <li key={el.name}>
+              <LinkWrapper key={el.name} isActive={location.pathname === `/${el.url}`}>
                 <StyledLink to={`/${el.url}`}>{el.displayName}</StyledLink>
-              </li>
+              </LinkWrapper>
             );
           })}
         </ul>
