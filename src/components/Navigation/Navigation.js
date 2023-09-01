@@ -5,14 +5,11 @@ import { NavigationWrapper, LinkWrapper, StyledLink } from './Navigation.style';
 import navigationElements from '../../data/navigationElements.json';
 
 const Navigation = () => {
-  
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   return (
     <>
-      <NavigationWrapper isMenuOpen={isMenuOpen}>
+      <NavigationWrapper isMenuOpen={location.pathname === '/menu'}>
         <ul>
           {navigationElements.navigationElements.map((el) => {
             return (
@@ -27,7 +24,7 @@ const Navigation = () => {
         </ul>
         <div></div>
       </NavigationWrapper>
-      <MobileNavigationBar setIsMenuOpen={setIsMenuOpen} />
+      <MobileNavigationBar/>
     </>
   );
 };

@@ -1,31 +1,22 @@
 import React, { useState } from "react";
 import { Nav, Button } from "./MobileNavigationBar.style";
+import { NavLink } from "react-router-dom";
 
-const MobileNavigationBar = ({ setIsMenuOpen }) => {
+const MobileNavigationBar = () => {
   const [activeLink, setActiveLink] = useState("Checkout");
-
-  const handleClick = (e) => {
-    setActiveLink(e.target.value);
-
-    e.target.value === "Menu" ? setIsMenuOpen(true) : setIsMenuOpen(false);
-  };
 
   return (
     <Nav>
-      <Button
-        onClick={handleClick}
-        isActive={activeLink === "Menu"}
-        value="Menu"
-      >
-        Menu
-      </Button>
-      <Button
-        onClick={handleClick}
-        isActive={activeLink === "Checkout"}
-        value="Checkout"
-      >
-        Checkout
-      </Button>
+      <NavLink to="/menu">
+        <Button isActive={activeLink === "Menu"} value="Menu">
+          Menu
+        </Button>
+      </NavLink>
+      <NavLink to="/checkout">
+        <Button isActive={activeLink === "Checkout"} value="Checkout">
+          Checkout
+        </Button>
+      </NavLink>
     </Nav>
   );
 };

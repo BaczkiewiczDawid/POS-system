@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 export const NavigationWrapper = styled.nav`
   display: ${(props) => (props.isMenuOpen ? "flex" : "none")};
@@ -13,9 +13,6 @@ export const NavigationWrapper = styled.nav`
   ul {
     margin-top: 2rem;
     margin-left: 2rem;
-
-    li {
-    }
   }
 `;
 

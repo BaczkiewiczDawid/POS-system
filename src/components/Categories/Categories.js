@@ -10,6 +10,7 @@ const Categories = () => {
       {categoryList.categories.map((item) => {
         return (
           <Category
+            key={item.id}
             name={item.name}
             quantity={item.quantity}
             id={item.id}

@@ -1,9 +1,9 @@
 import React from "react";
 import { CategoryWrapper, Info } from './Category.style'
 
-const Category = ({ id, name, quantity, icon }) => {
+const Category = ({ name, quantity, icon }) => {
   return (
-    <CategoryWrapper key={id}>
+    <CategoryWrapper>
       <img src={icon} alt="Icon" />
       <Info>
         <h2>{name}</h2>
