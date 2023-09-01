@@ -2,30 +2,10 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import MobileNavigationBar from "../MobileNavigationBar/MobileNavigationBar";
 import { NavigationWrapper, LinkWrapper, StyledLink } from './Navigation.style';
+import navigationElements from '../../data/navigationElements.json';
 
 const Navigation = () => {
-  const navigationElements = [
-    {
-      name: "orders",
-      displayName: "Orders",
-      url: "orders",
-    },
-    {
-      name: "menu",
-      displayName: "Menu",
-      url: "menu",
-    },
-    {
-      name: "gir-staff",
-      displayName: "GIR Staff",
-      url: "gir-staff",
-    },
-    {
-      name: "manager",
-      displayName: "Manager",
-      url: "manager",
-    },
-  ];
+  
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -34,7 +14,7 @@ const Navigation = () => {
     <>
       <NavigationWrapper isMenuOpen={isMenuOpen}>
         <ul>
-          {navigationElements.map((el) => {
+          {navigationElements.navigationElements.map((el) => {
             return (
               <LinkWrapper
                 key={el.name}

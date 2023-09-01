@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Buckets",
+      "quantity": 12
+    },
+    {
+      "id": 2,
+      "name": "Addons",
+      "quantity": 24
+    },
+    {
+      "id": 3,
+      "name": "Burgers",
+      "quantity": 18
+    },
+    {
+      "id": 4,
+      "name": "Chicken",
+      "quantity": 4
+    }
+  ]
+}

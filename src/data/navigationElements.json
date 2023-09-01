@@ -1,0 +1,24 @@
+{
+  "navigationElements": [
+    {
+      "name": "orders",
+      "displayName": "Orders",
+      "url": "orders"
+    },
+    {
+      "name": "menu",
+      "displayName": "Menu",
+      "url": "menu"
+    },
+    {
+      "name": "gir-staff",
+      "displayName": "GIR Staff",
+      "url": "gir-staff"
+    },
+    {
+      "name": "manager",
+      "displayName": "Manager",
+      "url": "manager"
+    }
+  ]
+}
