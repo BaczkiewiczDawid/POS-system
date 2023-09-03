@@ -6,4 +6,11 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
+
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
+    width: auto;
+    margin-top: 2rem;
+    height: 40vh;
+  }
 `;

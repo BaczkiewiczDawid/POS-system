@@ -3,7 +3,29 @@
     {
       "id": 1,
       "name": "Buckets",
-      "quantity": 12
+      "quantity": 12,
+      "items": [
+        {
+          "name": "Classic",
+          "price": 42.99,
+          "extendable": true
+        },
+        {
+          "name": "Classic XL",
+          "price": 72.99,
+          "extendable": true
+        },
+        {
+          "name": "15 Hot wings",
+          "price": 39.99,
+          "extendable": true
+        },
+        {
+          "name": "30 Hot wings",
+          "price": 69.99,
+          "extendable": true
+        }
+      ]
     },
     {
       "id": 2,

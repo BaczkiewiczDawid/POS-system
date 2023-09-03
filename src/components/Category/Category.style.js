@@ -9,6 +9,7 @@ export const CategoryWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   border-radius: 0.5rem;
   padding: 1rem;
+  cursor: pointer;
 
   img {
     width: 1rem;

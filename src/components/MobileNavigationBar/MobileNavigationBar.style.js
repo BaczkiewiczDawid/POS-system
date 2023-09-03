@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Nav = styled.nav`
   position: fixed;
   bottom: 0;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
+    display: none;
+  }
 `;
 
 export const Button = styled.button`

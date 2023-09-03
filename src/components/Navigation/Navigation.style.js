@@ -14,6 +14,12 @@ export const NavigationWrapper = styled.nav`
     margin-top: 2rem;
     margin-left: 2rem;
   }
+
+  @media screen and (min-width:${({ theme }) => theme.screen.medium}) {
+    display: flex;
+    width: 12rem;
+    position: sticky;
+  }
 `;
 
 export const LinkWrapper = styled.li`
@@ -26,6 +32,10 @@ export const LinkWrapper = styled.li`
 
   &:nth-child(n + 1) {
     margin-top: 0.5rem;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
+    width: 7rem;
   }
 `;
 
