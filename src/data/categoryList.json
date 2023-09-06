@@ -23,7 +23,7 @@
               "quantity": "2"
             },
             {
-              "name": "Frytki",
+              "name": "Fries",
               "quantity": "2"
             },
             {
@@ -50,7 +50,7 @@
               "quantity": "4"
             },
             {
-              "name": "Frytki",
+              "name": "Fries",
               "quantity": "4"
             },
             {
@@ -63,13 +63,31 @@
           "name": "15 Hot wings",
           "price": 39.99,
           "extendable": true,
-          "include": [{}]
+          "include": [
+            {
+              "name": "Hot wings",
+              "quantity": "15"
+            },
+            {
+              "name": "Fries",
+              "quantity": "2"
+            }
+          ]
         },
         {
           "name": "30 Hot wings",
           "price": 69.99,
           "extendable": true,
-          "include": [{}]
+          "include": [
+            {
+              "name": "Hot wings",
+              "quantity": "30"
+            },
+            {
+              "name": "Fries",
+              "quantity": "4"
+            }
+          ]
         }
       ]
     },
@@ -87,6 +105,20 @@
       "id": 4,
       "name": "Chicken",
       "quantity": 4
+    }
+  ],
+  "extensions": [
+    {
+      "name": "2 Hot Wings",
+      "price": 3.99
+    },
+    {
+      "name": "Hot & Spicy",
+      "price": 3.99
+    },
+    {
+      "name": "Fries Bucket",
+      "price": 5.99
     }
   ]
 }

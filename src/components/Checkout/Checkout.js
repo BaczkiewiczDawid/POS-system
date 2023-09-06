@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   CheckoutWrapper,
   Cart,
-  CartItem,
   Row,
   Details,
 } from "./Checkout.style";
@@ -10,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import MobileNavigationBar from "../MobileNavigationBar/MobileNavigationBar";
 import Summary from "../Summary/Summary";
 import CloseBtn from "../CloseBtn/CloseBtn";
+import CartItem from '../CartItem/CartItem';
 
 const Checkout = ({ cartItems }) => {
   const location = useLocation();
@@ -24,7 +24,7 @@ const Checkout = ({ cartItems }) => {
           <h2>Order #{orderNumber}</h2>
           <p>{cashierName}.</p>
           <Cart>
-            {cartItems.map((item) => {
+            {/* {cartItems.map((item) => {
               return (
                 <CartItem>
                   <Row header>
@@ -43,7 +43,8 @@ const Checkout = ({ cartItems }) => {
                   </Details>
                 </CartItem>
               );
-            })}
+            })} */}
+            <CartItem cartItems={cartItems} />
           </Cart>
           <Summary />
           <CloseBtn />
