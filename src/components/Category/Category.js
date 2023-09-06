@@ -1,10 +1,28 @@
 import React from "react";
-import { CategoryWrapper, Info } from './Category.style'
+import { CategoryWrapper, Info } from "./Category.style";
 
-const Category = ({ name, quantity, icon, setSelectedCategory }) => {
+const Category = ({
+  name,
+  price,
+  extendable,
+  icon,
+  setSelectedCategory,
+  primary,
+  include,
+  setIncludedItems,
+}) => {
   const handleSetCategory = () => {
-    setSelectedCategory(name)
-  }
+    if (primary) {
+      setSelectedCategory(name);
+    } else {
+      setIncludedItems({
+        name,
+        price,
+        extendable,
+        items: include,
+      });
+    }
+  };
 
   return (
     <CategoryWrapper onClick={handleSetCategory}>

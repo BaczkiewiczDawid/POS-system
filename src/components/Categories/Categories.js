@@ -4,7 +4,7 @@ import { Wrapper, ItemsWrapper } from "./Categories.style";
 import Category from "../Category/Category";
 import categoryList from "../../data/categoryList.json";
 
-const Categories = () => {
+const Categories = ({ setIncludedItems }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const allCategories = categoryList.categories.map((el) => el);
@@ -14,7 +14,6 @@ const Categories = () => {
   };
 
   const itemsList = allCategories.find(findCategoryDetails);
-  console.log(itemsList?.items);
 
   return (
     <Wrapper>
@@ -27,6 +26,7 @@ const Categories = () => {
               quantity={item.quantity}
               id={item.id}
               icon={icon}
+              primary={true}
               setSelectedCategory={setSelectedCategory}
             />
           );
@@ -35,7 +35,7 @@ const Categories = () => {
       <h1>Items</h1>
       <ItemsWrapper>
         {itemsList?.items?.map((item) => {
-          return <Category key={item.name} name={item.name} icon={icon} />;
+          return <Category key={item.name} name={item.name} icon={icon} price={item.price} extendable={item.extendable} include={item.include} setIncludedItems={setIncludedItems} />;
         })}
       </ItemsWrapper>
     </Wrapper>

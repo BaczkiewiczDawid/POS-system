@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   CheckoutWrapper,
   Cart,
@@ -11,7 +11,7 @@ import MobileNavigationBar from "../MobileNavigationBar/MobileNavigationBar";
 import Summary from "../Summary/Summary";
 import CloseBtn from "../CloseBtn/CloseBtn";
 
-const Checkout = () => {
+const Checkout = ({ cartItems }) => {
   const location = useLocation();
 
   let orderNumber = 42;
@@ -24,38 +24,26 @@ const Checkout = () => {
           <h2>Order #{orderNumber}</h2>
           <p>{cashierName}.</p>
           <Cart>
-            <CartItem>
-              <Row header>
-                <h3>B-Smart Longer</h3>
-                <p>8.99</p>
-              </Row>
-              <Details>
-                <Row>
-                  <p>1</p>
-                  <p>Longer</p>
-                </Row>
-                <Row>
-                  <p>1</p>
-                  <p>Frytki</p>
-                </Row>
-              </Details>
-            </CartItem>
-            <CartItem>
-              <Row header>
-                <h3>B-Smart Longer</h3>
-                <p>8.99</p>
-              </Row>
-              <Details>
-                <Row>
-                  <p>1</p>
-                  <p>Longer</p>
-                </Row>
-                <Row>
-                  <p>1</p>
-                  <p>Frytki</p>
-                </Row>
-              </Details>
-            </CartItem>
+            {cartItems.map((item) => {
+              return (
+                <CartItem>
+                  <Row header>
+                    <h3>{item.name}</h3>
+                    <p>{item.price}</p>
+                  </Row>
+                  <Details>
+                    {item?.items?.map((el) => {
+                      return (
+                        <Row>
+                          <p>{el.quantity}</p>
+                          <p>{el.name}</p>
+                        </Row>
+                      );
+                    })}
+                  </Details>
+                </CartItem>
+              );
+            })}
           </Cart>
           <Summary />
           <CloseBtn />

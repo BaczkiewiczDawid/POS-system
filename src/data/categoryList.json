@@ -8,22 +8,68 @@
         {
           "name": "Classic",
           "price": 42.99,
-          "extendable": true
+          "extendable": true,
+          "include": [
+            {
+              "name": "Hot wings",
+              "quantity": "4"
+            },
+            {
+              "name": "Strips",
+              "quantity": "4"
+            },
+            {
+              "name": "Hot & Spicy",
+              "quantity": "2"
+            },
+            {
+              "name": "Frytki",
+              "quantity": "2"
+            },
+            {
+              "name": "Dip",
+              "quantity": "1"
+            }
+          ]
         },
         {
           "name": "Classic XL",
           "price": 72.99,
-          "extendable": true
+          "extendable": true,
+          "include": [
+            {
+              "name": "Hot wings",
+              "quantity": "8"
+            },
+            {
+              "name": "Strips",
+              "quantity": "8"
+            },
+            {
+              "name": "Hot & Spicy",
+              "quantity": "4"
+            },
+            {
+              "name": "Frytki",
+              "quantity": "4"
+            },
+            {
+              "name": "Dip",
+              "quantity": "2"
+            }
+          ]
         },
         {
           "name": "15 Hot wings",
           "price": 39.99,
-          "extendable": true
+          "extendable": true,
+          "include": [{}]
         },
         {
           "name": "30 Hot wings",
           "price": 69.99,
-          "extendable": true
+          "extendable": true,
+          "include": [{}]
         }
       ]
     },
