@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CheckoutWrapper = styled.div`
+  display: ${props => props.open ? "block" : 'none'};
   position: fixed;
   background-color: ${({ theme }) => theme.colors.black};
   top: 0;
@@ -22,6 +23,7 @@ export const CheckoutWrapper = styled.div`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
+    display: block;
     position: sticky;
     width: 30%;
     right: 0;
