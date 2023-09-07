@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { CartItemWrapper, Row, Details } from "./CartItem.style.js";
 import extensionsListData from "../../data/categoryList.json";
+import Extensions from '../Extensions/Extensions';
 
 const CartItem = ({ cartItems }) => {
   const extensionsList = extensionsListData.extensions;
-    const [isExtensionsListOpen, setIsExtensionsListOpen] = useState(false);
+    const [isExtensionsListOpen, setIsExtensionsListOpen] = useState(true);
 
   const openExtensionsList = () => {
-    console.log(extensionsList);
     setIsExtensionsListOpen(true);
   };
 
@@ -33,6 +33,7 @@ const CartItem = ({ cartItems }) => {
           </CartItemWrapper>
         );
       })}
+      {isExtensionsListOpen && <Extensions />}
     </>
   );
 };
