@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-export const Button = styled.div`
-    width: 50px;
-    height: 50px;
-    background-color: ${({ theme }) => theme.colors.white};
+export const Button = styled.img`
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.5rem;
+    right: 1.5rem;
 
     @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
         display: none;
