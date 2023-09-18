@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Overlay, Modal, ListWrapper, ListItem } from "./Extensions.style";
-import CloseBtn from "../CloseBtn/CloseBtn";
 import categoryList from "../../data/categoryList.json";
 
 const Extensions = () => {
   const extensionsList = categoryList.extensions;
 
+  const ModalRef = useRef(null)
+
+  const CloseModal = (ref) => {
+    useEffect(() => {
+      const handleClickOutside = (e) => {
+        if (ref.current && !ref.current.contains(e.target)) {
+          console.log('Clicked outside');
+        }
+      }
+
+      document.addEventListener('mousedown', handleClickOutside);
+
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }, [ref])
+  }
+
+  CloseModal(ModalRef)
+
   return (
     <>
       <Overlay />
-      <Modal>
+      <Modal ref={ModalRef}>
         <h2>Select extensions</h2>
         <ListWrapper>
           {extensionsList.map((item) => {
