@@ -12,22 +12,14 @@ const Extensions = () => {
       <Modal>
         <h2>Select extensions</h2>
         <ListWrapper>
-          <ListItem>
-            <h3>2 How wings</h3>
-            <p>3.99</p>
-          </ListItem>
-          <ListItem>
-            <h3>2 How wings</h3>
-            <p>3.99</p>
-          </ListItem>
-          <ListItem>
-            <h3>2 How wings</h3>
-            <p>3.99</p>
-          </ListItem>
-          <ListItem>
-            <h3>2 How wings</h3>
-            <p>3.99</p>
-          </ListItem>
+          {extensionsList.map((item) => {
+            return (
+              <ListItem key={item.name}>
+                <h3>{item.name}</h3>
+                <p>{item.price}</p>
+              </ListItem>
+            )
+          })}
         </ListWrapper>
       </Modal>
     </>
