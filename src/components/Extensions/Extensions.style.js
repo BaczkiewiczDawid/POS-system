@@ -25,13 +25,29 @@ export const Modal = styled.div`
   margin: auto;
   z-index: 6;
   padding: 1rem;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
+    width: 80%;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.large}) {
+    width: 70%;
+  }
 `;
 
 export const ListWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: 2rem;
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.large}) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 export const ListItem = styled.div`
@@ -51,5 +67,17 @@ export const ListItem = styled.div`
 
   p {
     font-size: .8rem;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
+    height: 5rem;
+
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: .95rem;
+    }
   }
 `;
