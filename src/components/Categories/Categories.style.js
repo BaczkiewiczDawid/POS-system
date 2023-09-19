@@ -17,6 +17,6 @@ export const ItemsWrapper = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
     width: auto;
     margin-top: 2rem;
-    height: 40vh;
+    height: auto;
   }
 `;

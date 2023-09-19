@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Overlay, Modal, ListWrapper, ListItem } from "./Extensions.style";
 import categoryList from "../../data/categoryList.json";
+import ExtensionsItem from "../ExtensionsItem/ExtensionsItem";
 
 const Extensions = ({ setIsExtensionsListOpen }) => {
   const extensionsList = categoryList.extensions;
@@ -34,10 +35,11 @@ const Extensions = ({ setIsExtensionsListOpen }) => {
         <ListWrapper>
           {extensionsList.map((item) => {
             return (
-              <ListItem key={item.name}>
-                <h3>{item.name}</h3>
-                <p>{item.price}</p>
-              </ListItem>
+              // <ListItem key={item.name} isSelected onClick={() => addExtension(item)}>
+              //   <h3>{item.name}</h3>
+              //   <p>{item.price}</p>
+              // </ListItem>
+              <ExtensionsItem item={item} />
             )
           })}
         </ListWrapper>

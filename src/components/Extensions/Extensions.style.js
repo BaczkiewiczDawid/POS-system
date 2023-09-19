@@ -50,34 +50,3 @@ export const ListWrapper = styled.div`
   }
 `;
 
-export const ListItem = styled.div`
-  background-color: ${({ theme }) => theme.colors.black};
-  width: 100%;
-  height: 4rem;
-  border-radius: .25rem;
-  color: ${({ theme }) => theme.colors.white};
-  padding: .5rem;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
-  h3 {
-    font-size: .95rem;
-  }
-
-  p {
-    font-size: .8rem;
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.screen.medium}) {
-    height: 5rem;
-
-    h3 {
-      font-size: 1.1rem;
-    }
-
-    p {
-      font-size: .95rem;
-    }
-  }
-`;
