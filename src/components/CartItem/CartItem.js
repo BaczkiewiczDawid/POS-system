@@ -33,7 +33,7 @@ const CartItem = ({ cartItems }) => {
           </CartItemWrapper>
         );
       })}
-      {isExtensionsListOpen && <Extensions />}
+      {isExtensionsListOpen && <Extensions setIsExtensionsListOpen={setIsExtensionsListOpen} />}
     </>
   );
 };

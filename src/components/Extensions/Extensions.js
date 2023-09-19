@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Overlay, Modal, ListWrapper, ListItem } from "./Extensions.style";
 import categoryList from "../../data/categoryList.json";
 
-const Extensions = () => {
+const Extensions = ({ setIsExtensionsListOpen }) => {
   const extensionsList = categoryList.extensions;
 
   const ModalRef = useRef(null)
@@ -12,6 +12,7 @@ const Extensions = () => {
       const handleClickOutside = (e) => {
         if (ref.current && !ref.current.contains(e.target)) {
           console.log('Clicked outside');
+          setIsExtensionsListOpen(false);
         }
       }
 
