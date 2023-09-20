@@ -1,14 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ListItem, Details, CountWrapper } from "./ExtensionsItem.style";
 
-const ExtensionsItem = ({ item }) => {
+const ExtensionsItem = ({
+  item,
+  setSelectedExtensions,
+  selectedExtensions,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
-  const [count, setCount] = useState(0);
+  const [quantity, setQuantity] = useState(0);
+
+  const isExisting = (extension) => {
+    return extension.name === item.name;
+  };
 
   const addExtension = (item) => {
     setIsSelected(true);
-    setCount(count + 1);
+    setQuantity(quantity + 1);
   };
+
+  const updateSelectedExtensions = (name, price) => {
+    const a = selectedExtensions.find(isExisting);
+
+    if (a !== undefined) {
+      setSelectedExtensions(() => [
+        {
+          name: name,
+          price: price * quantity,
+          quantity: quantity,
+        },
+      ]);
+    } else {
+      setSelectedExtensions((prevState) => [
+        ...prevState,
+        {
+          name: name,
+          price: price * quantity,
+          quantity: quantity,
+        },
+      ]);
+    }
+  };
+
+  useEffect(() => {
+    updateSelectedExtensions(item.name, item.price);
+  }, [quantity]);
 
   return (
     <ListItem
@@ -21,7 +56,7 @@ const ExtensionsItem = ({ item }) => {
         <p>{item.price}</p>
       </Details>
       <CountWrapper>
-        <p>{count}</p>
+        <p>{quantity > 0 ? quantity : ""}</p>
       </CountWrapper>
     </ListItem>
   );

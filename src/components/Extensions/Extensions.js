@@ -5,6 +5,7 @@ import ExtensionsItem from "../ExtensionsItem/ExtensionsItem";
 
 const Extensions = ({ setIsExtensionsListOpen }) => {
   const extensionsList = categoryList.extensions;
+  const [selectedExtensions, setSelectedExtensions] = useState([]);
 
   const ModalRef = useRef(null)
 
@@ -27,6 +28,8 @@ const Extensions = ({ setIsExtensionsListOpen }) => {
 
   CloseModal(ModalRef)
 
+  console.log(selectedExtensions)
+
   return (
     <>
       <Overlay />
@@ -35,11 +38,7 @@ const Extensions = ({ setIsExtensionsListOpen }) => {
         <ListWrapper>
           {extensionsList.map((item) => {
             return (
-              // <ListItem key={item.name} isSelected onClick={() => addExtension(item)}>
-              //   <h3>{item.name}</h3>
-              //   <p>{item.price}</p>
-              // </ListItem>
-              <ExtensionsItem item={item} />
+              <ExtensionsItem item={item} selectedExtensions={selectedExtensions} setSelectedExtensions={setSelectedExtensions} />
             )
           })}
         </ListWrapper>

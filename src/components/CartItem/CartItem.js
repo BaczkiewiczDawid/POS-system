@@ -5,7 +5,7 @@ import Extensions from '../Extensions/Extensions';
 
 const CartItem = ({ cartItems }) => {
   const extensionsList = extensionsListData.extensions;
-    const [isExtensionsListOpen, setIsExtensionsListOpen] = useState(true);
+    const [isExtensionsListOpen, setIsExtensionsListOpen] = useState(false);
 
   const openExtensionsList = () => {
     setIsExtensionsListOpen(true);
