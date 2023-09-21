@@ -9,41 +9,35 @@ const ExtensionsItem = ({
   const [isSelected, setIsSelected] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
-  const isExisting = (extension) => {
-    return extension.name === item.name;
-  };
-
   const addExtension = (item) => {
     setIsSelected(true);
     setQuantity(quantity + 1);
-  };
 
-  const updateSelectedExtensions = (name, price) => {
-    const a = selectedExtensions.find(isExisting);
+    const existingExtensionIndex = selectedExtensions.findIndex(
+      (obj) => obj.name === item.name
+    );
 
-    if (a !== undefined) {
-      setSelectedExtensions(() => [
-        {
-          name: name,
-          price: price * quantity,
-          quantity: quantity,
-        },
-      ]);
+    if (existingExtensionIndex !== -1) {
+      const updatedExtensions = [...selectedExtensions];
+
+      updatedExtensions[existingExtensionIndex] = {
+        ...updatedExtensions[existingExtensionIndex],
+        quantity: updatedExtensions[existingExtensionIndex].quantity + 1,
+        price: updatedExtensions[existingExtensionIndex].price + item.price,
+      }
+
+      setSelectedExtensions(updatedExtensions)
     } else {
       setSelectedExtensions((prevState) => [
         ...prevState,
         {
-          name: name,
-          price: price * quantity,
-          quantity: quantity,
-        },
-      ]);
+          name: item.name,
+          price: item.price,
+          quantity: 1,
+        }
+      ])
     }
   };
-
-  useEffect(() => {
-    updateSelectedExtensions(item.name, item.price);
-  }, [quantity]);
 
   return (
     <ListItem
