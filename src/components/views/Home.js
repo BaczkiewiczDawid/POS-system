@@ -3,6 +3,7 @@ import Categories from "../Categories/Categories";
 import { HomeWrapper } from "./Home.style";
 import Navigation from "../Navigation/Navigation";
 import Checkout from "../Checkout/Checkout";
+import { ExtensionsProvider } from "../../context/ExtensionsContext";
 
 const Home = () => {
   const [includedItems, setIncludedItems] = useState([]);
@@ -12,7 +13,7 @@ const Home = () => {
     if (cartItems.length > 0) {
       setCartItems((prev) => [...prev, includedItems]);
     } else {
-      setCartItems([includedItems])
+      setCartItems([includedItems]);
     }
   }, [includedItems]);
 
@@ -21,7 +22,9 @@ const Home = () => {
       <HomeWrapper>
         <Navigation />
         <Categories setIncludedItems={setIncludedItems} />
-        <Checkout cartItems={cartItems} />
+        <ExtensionsProvider>
+          <Checkout cartItems={cartItems} />
+        </ExtensionsProvider>
       </HomeWrapper>
     </>
   );

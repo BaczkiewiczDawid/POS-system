@@ -19,6 +19,10 @@ export const Row = styled.div`
   justify-content: ${(props) =>
     props.header ? "space-between" : "flex-start"};
   margin-top: ${(props) => (props.header ? "0" : ".3rem")};
+
+  div {
+    display: flex;
+  }
 `;
 
 export const Details = styled.div`

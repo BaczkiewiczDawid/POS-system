@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { CartItemWrapper, Row, Details } from "./CartItem.style.js";
 import extensionsListData from "../../data/categoryList.json";
-import Extensions from '../Extensions/Extensions';
+import Extensions from "../Extensions/Extensions";
+import { useExtensions } from "../../context/ExtensionsContext.js";
 
 const CartItem = ({ cartItems }) => {
-  const extensionsList = extensionsListData.extensions;
-    const [isExtensionsListOpen, setIsExtensionsListOpen] = useState(false);
+  const { selectedExtensions } = useExtensions();
+
+  const [isExtensionsListOpen, setIsExtensionsListOpen] = useState(false);
 
   const openExtensionsList = () => {
     setIsExtensionsListOpen(true);
@@ -13,6 +15,25 @@ const CartItem = ({ cartItems }) => {
 
   return (
     <>
+      <CartItemWrapper>
+        <Details>
+          <Row header>
+            <h3>Extensions</h3>
+          </Row>
+          {selectedExtensions.map((extension) => {
+            return (
+              <Row header>
+                <div>
+                  <p>{extension.quantity}</p>
+                  <p>{extension.name}</p>
+                </div>
+
+                <p>{extension.price}</p>
+              </Row>
+            );
+          })}
+        </Details>
+      </CartItemWrapper>
       {cartItems.map((item) => {
         return (
           <CartItemWrapper onClick={openExtensionsList}>
@@ -33,7 +54,9 @@ const CartItem = ({ cartItems }) => {
           </CartItemWrapper>
         );
       })}
-      {isExtensionsListOpen && <Extensions setIsExtensionsListOpen={setIsExtensionsListOpen} />}
+      {isExtensionsListOpen && (
+        <Extensions setIsExtensionsListOpen={setIsExtensionsListOpen} />
+      )}
     </>
   );
 };

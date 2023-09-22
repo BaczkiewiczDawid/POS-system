@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { Overlay, Modal, ListWrapper, ListItem } from "./Extensions.style";
 import categoryList from "../../data/categoryList.json";
 import ExtensionsItem from "../ExtensionsItem/ExtensionsItem";
-
+import { useExtensions } from '../../context/ExtensionsContext';
 const Extensions = ({ setIsExtensionsListOpen }) => {
+  const { selectedExtensions } = useExtensions();
+
   const extensionsList = categoryList.extensions;
-  const [selectedExtensions, setSelectedExtensions] = useState([]);
 
   const ModalRef = useRef(null)
 
@@ -38,7 +39,7 @@ const Extensions = ({ setIsExtensionsListOpen }) => {
         <ListWrapper>
           {extensionsList.map((item) => {
             return (
-              <ExtensionsItem item={item} selectedExtensions={selectedExtensions} setSelectedExtensions={setSelectedExtensions} />
+              <ExtensionsItem item={item} />
             )
           })}
         </ListWrapper>

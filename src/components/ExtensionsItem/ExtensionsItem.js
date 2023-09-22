@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { ListItem, Details, CountWrapper } from "./ExtensionsItem.style";
+import { useExtensions } from '../../context/ExtensionsContext';
 
 const ExtensionsItem = ({
   item,
-  setSelectedExtensions,
-  selectedExtensions,
 }) => {
+  const { selectedExtensions, setSelectedExtensions} = useExtensions();
+
   const [isSelected, setIsSelected] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
