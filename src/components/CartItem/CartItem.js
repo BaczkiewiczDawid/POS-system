@@ -28,7 +28,7 @@ const CartItem = ({ cartItems }) => {
                   <p>{extension.name}</p>
                 </div>
 
-                <p>{extension.price}</p>
+                <p>{extension.price.toFixed(2)}</p>
               </Row>
             );
           })}
