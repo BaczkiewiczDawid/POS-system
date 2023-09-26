@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { ListItem, Details, CountWrapper } from "./ExtensionsItem.style";
-import { useExtensions } from '../../context/ExtensionsContext';
+import { useExtensions } from "../../context/ExtensionsContext";
 
-const ExtensionsItem = ({
-  item,
-}) => {
-  const { selectedExtensions, setSelectedExtensions} = useExtensions();
+const ExtensionsItem = ({ item }) => {
+  const { selectedExtensions, setSelectedExtensions } = useExtensions();
+
+  const a = selectedExtensions.quantity >= 1 ? true : false;
 
   const [isSelected, setIsSelected] = useState(false);
   const [quantity, setQuantity] = useState(0);
@@ -25,9 +25,9 @@ const ExtensionsItem = ({
         ...updatedExtensions[existingExtensionIndex],
         quantity: updatedExtensions[existingExtensionIndex].quantity + 1,
         price: updatedExtensions[existingExtensionIndex].price + item.price,
-      }
+      };
 
-      setSelectedExtensions(updatedExtensions)
+      setSelectedExtensions(updatedExtensions);
     } else {
       setSelectedExtensions((prevState) => [
         ...prevState,
@@ -35,10 +35,25 @@ const ExtensionsItem = ({
           name: item.name,
           price: item.price,
           quantity: 1,
-        }
-      ])
+        },
+      ]);
     }
   };
+
+  console.log(item.name);
+
+  const handleValues = () => {
+    selectedExtensions.forEach((el) => {
+      if (el.name === item.name && el.quantity > 0) {
+        setQuantity(el.quantity);
+        setIsSelected(true)
+      }
+    });
+  };
+
+  useEffect(() => {
+    handleValues();
+  }, []);
 
   return (
     <ListItem

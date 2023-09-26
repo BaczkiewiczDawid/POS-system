@@ -29,8 +29,6 @@ const Extensions = ({ setIsExtensionsListOpen }) => {
 
   CloseModal(ModalRef)
 
-  console.log(selectedExtensions)
-
   return (
     <>
       <Overlay />
